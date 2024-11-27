@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Post</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'list.css' %}">
+    </head>
+<body>
+    <h1>Post</h1>
+
+    <a class='button' href="http://127.0.0.1:8000/sign_up/">Регистрация</a>
+    <a class='button' href="http://127.0.0.1:8000/admin/">Панель администрации</a>
+    <a class='button' href="http://127.0.0.1:8000/blog/">Блог</a>
+    <h1></h1>
+    <h1>{{ post.title }}</h1>
+    <p class="date">
+        Published {{ post.publish }} by {{ post.author }}
+    </p>
+    
+    {% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+    {% endif %}
+    <h1></h1>
+    {{ post.body | linebreaks }}
+    <p>
+        <a href="{% url 'blog:post_share' post.id %}">Share this post</a>
+    </p>
+    
+    <p class="tags">Tags:
+        {% for tag in post.tags.all %}
+            <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                {{ tag.name }}
+            </a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+
+    {% with comments.count as total_comments %}
+        <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+    {% endwith %}
+
+    {% for comment in comments %}
+        <div class="comment">
+            <p class="info">
+                Comment {{ forloop.counter }} by {{ comment.name }}
+                {{ comment.created }}
+            </p>
+            {{ comment.body|linebreaks }}
+        </div>
+    {% empty %}
+        <p>There are no comments yet</p>
+    {% endfor %}
+
+    {% if new_comment %}
+        <h2>Your comment has been added</h2>
+    {% else %}
+        <h2>Add a new comment</h2>
+        <form action="." method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <p><input type="submit" value="Add comment"></p>
+        </form>
+    {% endif %}
+
+    <h2>Recommended Articles</h2>
+    {% if similar_posts %}
+        <ul>
+            {% for similar_post in similar_posts %}
+                <li>
+                    <a href="{{ similar_post.get_absolute_url }}">{{ similar_post.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommended articles available</p>
+    {% endif %}
+</body>
+</html>

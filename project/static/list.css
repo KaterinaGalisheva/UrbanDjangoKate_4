@@ -1,0 +1,120 @@
+/* list.css */
+
+/* Сброс стандартных стилей */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Основные стили для body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url('/static/list.webp');
+    background-size: cover; /* Масштабирование изображения, чтобы оно заполнило весь фон */
+    background-position: center; /* Центрирование изображения */
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Стили заголовков */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #007BFF; /* Синий цвет для заголовка */
+    text-align: center; /* Центрирование текста */
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Стили для кнопок */
+.button {
+    background-color: #007BFF; /* Синий фон */
+    color: white; /* Белый текст */
+    border: none; /* Без границы */
+    padding: 10px 15px; /* Отступы */
+    text-align: center; /* Выравнивание по центру */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: inline-block; /* Отображение в строку */
+    font-size: 1em; /* Размер шрифта */
+    margin: 5px; /* Отступы между кнопками */
+    cursor: pointer; /* Курсор в виде указателя */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    display: inline-block;
+    width: 200px; /* Задайте нужную ширину */
+    height: 50px; /* Задайте нужную высоту */
+    background-image: url('/static/button.jpg'); /* Убедитесь, что путь к изображению правильный */
+    background-size: cover; /* Растягиваем изображение на весь фон */
+    background-position: center; /* Центрируем изображение */
+    color: white; /* Цвет текста */
+    text-align: center; /* Центрируем текст */
+    line-height: 50px; /* Вертикальное центрирование текста */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Скругляем углы */
+    cursor: pointer; /* Курсор при наведении */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Темнее при наведении */
+}
+
+
+/* Стили для тегов */
+.tags {
+    margin-top: 15px; /* Отступ сверху */
+    font-size: 0.9em; /* Размер шрифта меньше */
+    color: #777; /* Серый цвет */
+}
+
+.tags a {
+    color: #007BFF; /* Синий цвет для ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.tags a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Стили для даты */
+.date {
+    font-size: 0.9em; /* Размер шрифта меньше */
+    color: #777; /* Серый цвет */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+/* Стили для постов */
+article {
+    background-color: #fff; /* Белый фон для постов */
+    border: 1px solid #ddd; /* Серая граница */
+    padding: 15px; /* Отступы */
+    margin: 10px 0; /* Отступы между постами */
+    border-radius: 5px; /* Закругленные углы */
+}
+
+/* Стили для пустого сообщения */
+p {
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.post-title {
+    border: 2px solid #007bff; /* Цвет рамки (синий) */
+    background-color: #e7f1ff; /* Светлый фон */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 10px; /* Отступы внутри рамки */
+    text-align: center; /* Центрирование текста */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.post-title a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #007bff; /* Цвет текста ссылки */
+    font-weight: bold; /* Жирный текст */
+}

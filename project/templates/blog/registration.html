@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'registration.css' %}">
+</head>
+<body>
+
+    <h1>Registration</h1>
+
+    <a class='button' href="http://127.0.0.1:8000/blog/">Статьи</a>
+    <a class='button' href="http://127.0.0.1:8000/admin/">Админ</a>
+
+    
+    {% if info.error %}
+        <div class="error-message">
+            <h3>Ошибка</h3>
+            <h3>{{ info.error }}</h3>
+        </div>
+    {% endif %}
+    
+    
+    <form method="post">
+        {% csrf_token %}
+        <h2></h2>
+        <label for="username">Введите логин</label>
+        <input type="text" id="username" name="username" maxlength="10" required>
+        <h5></h5>
+        <label for="age">Введите свой возраст</label>
+        <input type="number" id="age" name="age" max="100" required>
+        <h5></h5>
+        <label for="email">Введите свой email</label>
+        <input type="text" id="email" name="email" maxlength="100" required>
+        <h5></h5>
+        <label for="password">Введите пароль</label>
+        <input type="password" id="password" name="password" minlength="6" required>
+        <h5></h5>
+        <label for="repeat_password">Повторите пароль</label>
+        <input type="password" id="repeat_password" name="repeat_password" minlength="6" required>
+        
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+
+    
+</body>
+</html>
